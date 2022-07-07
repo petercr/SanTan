@@ -12,6 +12,10 @@ const Home: NextPage = () => (
     </Head>
 
     <main>
+      <div className={styles.landingCard}>
+        <h1>Cape Cod World</h1>
+        <p>Bringing Your Ideas To The World 🌎</p>
+      </div>
       <Image
         src="/beach_backdrop.svg"
         alt="beach drawing"
