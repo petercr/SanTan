@@ -6,6 +6,8 @@ const Card: NextComponentType = () => (
     <p>Bringing Your Ideas To The World 🌎</p>
     <style jsx>{`
       div {
+        display: flex;
+        place-content: center;
         background: rgba(255, 255, 255, 0.81);
         border: 1px solid #000000;
         box-shadow: 8px 7px 8px rgba(0, 0, 0, 0.29);
