@@ -1,6 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import Card from '../components/Card';
+import HeaderCard from '../components/HeaderCard';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => (
@@ -12,9 +14,9 @@ const Home: NextPage = () => (
     </Head>
 
     <main>
-      <div className={styles.landingCard}>
-        <h1>Cape Cod World</h1>
-        <p>Bringing Your Ideas To The World 🌎</p>
+      <div className={styles.mainContent}>
+        <Card />
+        <HeaderCard text="this is a test!" />
       </div>
       <Image
         src="/beach_backdrop.svg"
