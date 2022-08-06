@@ -18,6 +18,7 @@ const StyledDiv = styled.div`
   border-radius: 20px;
   border: 1px solid #000000;
   padding: 1em;
+  margin: 2em;
 
   h1 {
     font-size: 40px;
