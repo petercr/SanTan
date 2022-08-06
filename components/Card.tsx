@@ -1,21 +1,22 @@
 import type { NextComponentType } from 'next';
+import styled from 'styled-components';
+
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  background: rgba(255, 255, 255, 0.81);
+  border: 1px solid #000000;
+  box-shadow: 8px 7px 8px rgba(0, 0, 0, 0.29);
+  border-radius: 20px;
+  padding: 1rem;
+`;
 
 const Card: NextComponentType = () => (
-  <div>
+  <StyledDiv>
     <h1>Cape Cod World</h1>
     <p>Bringing Your Ideas To The World 🌎</p>
-    <style jsx>{`
-      div {
-        display: flex;
-        place-content: center;
-        background: rgba(255, 255, 255, 0.81);
-        border: 1px solid #000000;
-        box-shadow: 8px 7px 8px rgba(0, 0, 0, 0.29);
-        border-radius: 20px;
-        padding: 1rem;
-      }
-    `}</style>
-  </div>
+  </StyledDiv>
 );
 
 export default Card;
