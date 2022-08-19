@@ -1,9 +1,11 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import Card from '../src/components/Card';
-import HeaderCard from '../src/components/HeaderCard';
-import styles from '../styles/Home.module.css';
+import Card from '../components/Card';
+import HeaderCard from '../components/HeaderCard';
+import FourLinkCard from '../components/FourLinkCard';
+import NavCard from '../components/NavCard';
+import styles from '../../styles/Home.module.css';
 
 const Home: NextPage = () => (
   <div className={styles.container}>
@@ -16,7 +18,9 @@ const Home: NextPage = () => (
     <main>
       <div className={styles.mainContent}>
         <Card />
-        <HeaderCard text="this is a test!" />
+        <NavCard />
+        <HeaderCard text="What We Do" />
+        <FourLinkCard />
       </div>
       <Image
         src="/beach_backdrop.svg"
