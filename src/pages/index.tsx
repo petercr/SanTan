@@ -7,6 +7,7 @@ import FourLinkCard from '../components/FourLinkCard';
 import NavCard from '../components/NavCard';
 import styles from '../../styles/Home.module.css';
 import HeaderTextCard from '../components/HeaderTextCard';
+import ButtonLinkCard from '../components/ButtonLinkCard';
 
 const Home: NextPage = () => (
   <div className={styles.container}>
@@ -19,10 +20,12 @@ const Home: NextPage = () => (
     <main>
       <div className={styles.mainContent}>
         <Card />
-        <NavCard />
         <HeaderCard text="What We Do" />
         <FourLinkCard />
+        <NavCard />
         <HeaderTextCard />
+        <NavCard />
+        <ButtonLinkCard />
       </div>
       <Image
         src="/beach_backdrop.svg"
