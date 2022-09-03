@@ -12,7 +12,7 @@ const StyledText = styled.p`
 
 const HeaderTextCard: NextComponentType = () => (
   <>
-    <HeaderCard text="To Put It Simply" />
+    <HeaderCard text="To Put It Simply" typeElm="h3" />
     <StyledDiv>
       <StyledText>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam,

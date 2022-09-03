@@ -23,7 +23,7 @@ const StyledDiv = styled.div`
 
 const ButtonLinkCard: NextComponentType = () => (
   <>
-    <HeaderCard text="Here's How We Can Help You" />
+    <HeaderCard text="Here's How We Can Help You" typeElm="h4" />
     <StyledDiv>
       <p>Check out some customer testimonials.</p>
       <button type="button">Testimonials</button>
