@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 interface Props {
   text: string;
+  typeElm: string | null | undefined;
 }
 
 const StyledDiv = styled.div`
@@ -26,14 +27,44 @@ const StyledDiv = styled.div`
   }
 `;
 
-const HeaderCard: FunctionComponent<Props> = ({ text }) => (
-  <StyledDiv>
-    <h1>{text}</h1>
-  </StyledDiv>
-);
+const HeaderCard: FunctionComponent<Props> = ({ text, typeElm }) => {
+  switch (typeElm) {
+    case 'h1':
+      return (
+        <StyledDiv>
+          <h1>{text}</h1>
+        </StyledDiv>
+      );
+    case 'h2':
+      return (
+        <StyledDiv>
+          <h2>{text}</h2>
+        </StyledDiv>
+      );
+    case 'h3':
+      return (
+        <StyledDiv>
+          <h3>{text}</h3>
+        </StyledDiv>
+      );
+    case 'h4':
+      return (
+        <StyledDiv>
+          <h4>{text}</h4>
+        </StyledDiv>
+      );
+    default:
+      return (
+        <StyledDiv>
+          <h1>{text}</h1>
+        </StyledDiv>
+      );
+  }
+};
 
 HeaderCard.propTypes = {
   text: PropTypes.string.isRequired,
+  typeElm: PropTypes.string,
 };
 
 export default HeaderCard;
