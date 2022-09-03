@@ -11,11 +11,14 @@ export const StyledDiv = styled.div`
   border: 1px solid #000000;
   box-shadow: 8px 7px 8px rgba(0, 0, 0, 0.29);
   border-radius: 20px;
-  padding: 1rem;
+  gap: 0.25rem;
 `;
 
 const StyledSocialDiv = styled.div`
   flex-direction: row;
+  & a {
+    margin: 0.5rem;
+  }
 `;
 
 const SocialLinksCard: NextComponentType = () => (
