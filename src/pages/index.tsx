@@ -20,7 +20,7 @@ const Home: NextPage = () => (
 
     <main>
       <div className={styles.mainContent}>
-        <Card typeElm="h1" />
+        <Card />
         <HeaderCard text="What We Do" typeElm="h3" />
         <FourLinkCard />
         <NavCard />
