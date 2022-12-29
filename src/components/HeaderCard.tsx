@@ -20,6 +20,8 @@ const StyledDiv = styled.div`
   border: 1px solid #000000;
   padding: 1em;
   margin: 2em;
+  min-width: 250px;
+  text-align: center;
 
   h1 {
     font-size: 40px;
