@@ -12,6 +12,8 @@ export const StyledDiv = styled.div`
   box-shadow: 8px 7px 8px rgba(0, 0, 0, 0.29);
   border-radius: 20px;
   gap: 0.25rem;
+  margin-top: 35px;
+  margin-bottom: 35px;
 `;
 
 const StyledSocialDiv = styled.div`
