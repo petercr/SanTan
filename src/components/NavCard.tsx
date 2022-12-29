@@ -10,6 +10,7 @@ const StyledDiv = styled.div`
   box-shadow: 8px 7px 8px rgba(0, 0, 0, 0.29);
   border-radius: 20px;
   padding: 1rem;
+  margin-top: 2rem;
 `;
 
 const NavCard: NextComponentType = () => (
