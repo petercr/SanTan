@@ -29,12 +29,7 @@ const Home: NextPage = () => (
         <ButtonLinkCard />
         <SocialLinksCard />
       </div>
-      <Image
-        src="/beach_backdrop.svg"
-        alt="beach drawing"
-        layout="fill"
-        objectFit="cover"
-      />
+      <Image src="/beach_backdrop.svg" alt="beach drawing" />
     </main>
   </div>
 );
