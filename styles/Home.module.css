@@ -1,5 +1,4 @@
 .container {
-  padding: 0 2rem;
   background-color: #4FB4EC;
 }
 
@@ -11,6 +10,13 @@
   position: sticky;
   padding: 2rem;
   z-index: 10;
-  margin-top: 25vh;
+  background: url("../public/beach_backdrop.svg") no-repeat;
+
+}
+
+.fullWidth {
+  /* width: 100vw; */
+  /* margin-top: -20vh; */
+  background-color: #4FB4EC;
 
 }
