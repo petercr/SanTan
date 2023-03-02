@@ -12,6 +12,8 @@ export const StyledDiv = styled.div`
   border-radius: 20px;
   padding: 1rem;
   text-align: center;
+  margin-top: 16vh;
+  margin-bottom: 49vh;
 `;
 
 const Card: FunctionComponent = () => (
