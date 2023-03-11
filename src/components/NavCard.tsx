@@ -4,7 +4,8 @@ import styled from 'styled-components';
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
-  place-content: center;
+  justify-content: center;
+  align-items: center;
   background: rgba(255, 255, 255, 0.81);
   border: 1px solid #000000;
   box-shadow: 8px 7px 8px rgba(0, 0, 0, 0.29);
@@ -24,6 +25,8 @@ const NavCard: NextComponentType = () => (
       viewBox="0 0 24 24"
       stroke="currentColor"
       strokeWidth={2}
+      height={50}
+      width={50}
     >
       <path
         strokeLinecap="round"
