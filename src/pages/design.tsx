@@ -21,7 +21,7 @@ const StyledPage = styled.div`
 const Design: NextPage = () => (
   <div className={styles.container}>
     <Head>
-      <title>Cape Cod World</title>
+      <title>Design | Cape Cod World</title>
       <meta name="description" content="A website starts with a design" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
