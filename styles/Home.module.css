@@ -10,13 +10,6 @@
   position: sticky;
   padding: 2rem;
   z-index: 10;
-  background: url("../public/beach_backdrop.svg") no-repeat;
-
-}
-
-.fullWidth {
-  /* width: 100vw; */
-  /* margin-top: -20vh; */
-  background-color: #4FB4EC;
+  background: top / contain no-repeat url("../public/beach_backdrop.svg");
 
 }
