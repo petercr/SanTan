@@ -28,8 +28,7 @@ const SocialLinksCard: NextComponentType = () => (
     <p> Social Links</p>
     <StyledSocialDiv>
       <SocialIcon url="https://twitter.com/petecapecod" />
-      <SocialIcon url="https://www.facebook.com/peter.cruckshank/" />
-      <SocialIcon url="https://www.instagram.com/petecapecod/" />
+      <SocialIcon url="https://www.linkedin.com/in/peter-cruckshank-25022a141/" />
       <SocialIcon url="https://github.com/petercr" />
     </StyledSocialDiv>
   </StyledDiv>
