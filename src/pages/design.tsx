@@ -32,9 +32,9 @@ const Design: NextPage = () => (
         <StyledDiv>
           <Image
             src="/undraw_designer_re_5v95.svg"
-            layout="fixed"
-            height={100}
-            width={100}
+            alt="cartoon drawing of a designer hard at work"
+            height={250}
+            width={250}
           />
           <p>
             Ullamcorper sagittis neque diam magna. Viverra augue nibh
