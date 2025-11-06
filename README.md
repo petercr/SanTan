@@ -408,7 +408,7 @@ Turborepo should handle this automatically with the `^build` dependency.
 
 ## License
 
-[Your License Here]
+MIT
 
 ---
 
