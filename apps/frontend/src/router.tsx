@@ -4,6 +4,7 @@ import * as TanstackQuery from './integrations/tanstack-query/root-provider';
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen';
+import { getCspNonce } from '@/functions/getCspNonce.ts';
 
 // Create a new router instance
 export const getRouter = () => {
@@ -17,6 +18,7 @@ export const getRouter = () => {
     defaultPendingMinMs: 100, // Keep pending state for at least 100ms to avoid flashing
     defaultErrorComponent: ({ error }) => <ErrorComponent error={error} />,
     scrollRestoration: true,
+    ssr: { nonce: getCspNonce() },
     defaultViewTransition: {
       types: ({ fromLocation, toLocation }) => {
         let direction = 'none';

@@ -42,7 +42,12 @@ export const link = style({
   height: '100%',
   flex: 1,
   selectors: {
-    '&:hover': { background: vars.color.surfaceHover, borderColor: vars.color.border, transform: 'translateY(-4px)', boxShadow: vars.shadow.float },
+    '&:hover': {
+      background: vars.color.surfaceHover,
+      borderColor: vars.color.border,
+      transform: 'translateY(-4px)',
+      boxShadow: vars.shadow.float,
+    },
     '&:focus-visible': { outline: 'none', boxShadow: vars.shadow.focus },
   },
 });
@@ -84,9 +89,6 @@ export const heading = style({
   letterSpacing: '-0.01em',
   margin: 0,
   color: vars.color.text,
-  selectors: {
-    '[data-theme="dark"] &': { color: '#F5F9FC' },
-  },
 });
 
 export const allLink = style({
@@ -103,8 +105,6 @@ export const allLink = style({
   transition: 'background .3s, border-color .3s, color .3s',
   selectors: {
     '&:hover': { background: vars.color.accentTint, borderColor: vars.color.border },
-    '[data-theme="dark"] &': { background: 'rgba(255,255,255,0.07)', color: '#F5F9FC' },
-    '[data-theme="dark"] &:hover': { background: 'rgba(255,255,255,0.12)', color: vars.color.primary },
   },
 });
 

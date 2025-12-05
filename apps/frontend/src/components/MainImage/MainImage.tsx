@@ -1,8 +1,15 @@
 import urlBuilder from '@sanity/image-url';
-import { container } from './MainImage.css.ts';
-import { aspectWrapper, imgActual, skeleton, portraitWrapper, portraitImg } from './MainImage.css.ts';
-import { placeholderWrapper, placeholderInner } from './MainImage.css.ts';
-import { useState, useRef, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import {
+  aspectWrapper,
+  container,
+  imgActual,
+  placeholderInner,
+  placeholderWrapper,
+  portraitImg,
+  portraitWrapper,
+  skeleton,
+} from './MainImage.css.ts';
 
 import type { SanityImageType } from '@/types/image.ts';
 import { dataset, projectId } from '@/sanity/projectDetails.ts';
@@ -28,7 +35,17 @@ export function MainImage({ image, encodeDataAttribute }: MainImageProps) {
       <div className={container}>
         <div className={placeholderWrapper} data-sanity={encodeDataAttribute}>
           <div className={placeholderInner}>
-            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg
+              width="42"
+              height="42"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
               <rect x="3" y="3" width="18" height="14" rx="2" ry="2" />
               <circle cx="8" cy="8" r="2" />
               <path d="M3 17l4.5-4.5a2 2 0 0 1 2.8 0L17 17" />
@@ -117,17 +134,9 @@ export function MainImage({ image, encodeDataAttribute }: MainImageProps) {
           />
         </div>
       ) : (
-        <div
-          className={aspectWrapper}
-          data-sanity={encodeDataAttribute}
-          style={{ paddingBottom: `${ratio * 100}%` }}
-        >
+        <div className={aspectWrapper} data-sanity={encodeDataAttribute} style={{ paddingBottom: `${ratio * 100}%` }}>
           {!loaded && (
-            <div
-              className={skeleton}
-              aria-hidden="true"
-              style={{ transition: 'opacity 0.4s ease', opacity: 0.6 }}
-            />
+            <div className={skeleton} aria-hidden="true" style={{ transition: 'opacity 0.4s ease', opacity: 0.6 }} />
           )}
           <img
             ref={imgRef}

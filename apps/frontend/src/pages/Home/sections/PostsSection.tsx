@@ -15,7 +15,7 @@ export function PostsSection({ posts, isPreview, hasNextPage, isFetchingNextPage
     <section className={section}>
       <h2 className={sectionTitle}>Latest Posts</h2>
       <div className={container}>
-        {posts.map(post => (
+        {posts.map((post) => (
           <PostCard
             key={post.fullSlug ?? post._id}
             fullSlug={post.fullSlug}

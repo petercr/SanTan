@@ -1,9 +1,9 @@
 import { UserIcon } from '@sanity/icons';
 import { defineField, defineType } from 'sanity';
 
-export const author = defineType({
-  name: 'author',
-  title: 'Fofatter',
+export const person = defineType({
+  name: 'person',
+  title: 'Forfatter',
   type: 'document',
   icon: UserIcon,
   fields: [
@@ -41,6 +41,11 @@ export const author = defineType({
           lists: [],
         },
       ],
+    }),
+    defineField({
+      name: 'email',
+      title: 'E-post',
+      type: 'string',
     }),
   ],
   preview: {

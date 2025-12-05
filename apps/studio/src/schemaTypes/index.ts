@@ -1,8 +1,5 @@
-import { author } from './author';
-import { blockContent } from './blockContent';
-import { category } from './category';
-import { home } from './home';
-import { post } from './post';
-import { seo } from './seo';
+import { blockTypes } from './blockTypes';
+import { documentTypes } from './documentTypes';
+import { fieldTypes } from './fieldTypes';
 
-export const schemaTypes = [home, post, author, category, blockContent, seo];
+export const schemaTypes = [...documentTypes, ...blockTypes, ...fieldTypes];

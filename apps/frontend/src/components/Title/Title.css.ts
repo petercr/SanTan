@@ -11,8 +11,9 @@ export const title = style({
   lineHeight: 1.2,
   '@media': {
     'screen and (max-width: 768px)': {
+      paddingLeft: '1.25rem',
+      paddingRight: '1.25rem',
       fontSize: '2.5rem',
     },
   },
 });
-

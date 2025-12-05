@@ -25,7 +25,7 @@ export const Document = ({ data, encodeDataAttribute }: PageProps<DocumentType>)
 
   // Switch on the document type to render the appropriate page
   switch (data._type) {
-    case 'category':
+    case sanityTypeLiterals.category:
       return <CategoryPage data={data} encodeDataAttribute={encodeDataAttribute} />;
     case sanityTypeLiterals.post:
       return <PostPage data={data} encodeDataAttribute={encodeDataAttribute} />;

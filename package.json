@@ -1,7 +1,7 @@
 {
   "name": "santan-monorepo",
   "private": true,
-  "packageManager": "npm@10.2.4",
+  "packageManager": "npm@11.6.2",
   "license": "MIT",
   "scripts": {
     "dev": "echo '🚀 Starting development servers...' && turbo run dev",

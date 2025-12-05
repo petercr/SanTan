@@ -113,7 +113,7 @@ const Home = ({ data }: PageProps<HomePagePayload>) => {
       <div className={divider} />
       <HighlightsSection />
       <div className={divider} />
-      <ArchitectureSection badges={[ 'React 19', 'TanStack Start', 'TypeScript', 'Sanity', 'Edge Friendly' ]} />
+      <ArchitectureSection badges={['React 19', 'TanStack Start', 'TypeScript', 'Sanity', 'Edge Friendly']} />
       <div className={divider} />
       <DevExpSection />
       <div className={divider} />
