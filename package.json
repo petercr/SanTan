@@ -21,7 +21,7 @@
     "packages/*"
   ],
   "engines": {
-    "node": ">=18"
+    "node": ">=24"
   },
   "dependencies": {
     "@sanity/vision": "^4.20.3",
