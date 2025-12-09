@@ -1,7 +1,7 @@
 {
   "name": "santan-monorepo",
   "private": true,
-  "packageManager": "npm@10.2.4",
+  "packageManager": "npm@11.6.2",
   "license": "MIT",
   "scripts": {
     "dev": "echo '🚀 Starting development servers...' && turbo run dev",
@@ -14,14 +14,18 @@
     "clean": "echo '🧹 Cleaning build artifacts...' && turbo run clean"
   },
   "devDependencies": {
-    "turbo": "^2.3.0"
+    "turbo": "^2.6.3"
   },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "engines": {
-    "node": ">=18"
+    "node": ">=24"
+  },
+  "dependencies": {
+    "@sanity/vision": "^4.20.3",
+    "diff": "^8.0.2",
+    "sanity": "^4.20.3"
   }
 }
-

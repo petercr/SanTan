@@ -1,12 +1,31 @@
 import { Link } from '@tanstack/react-router';
 import { useCallback, useEffect, useState } from 'react';
 import { Home, Menu, Moon, Sun, X } from 'lucide-react';
-import * as styles from './Header.css.ts';
+import {
+  brand,
+  closeButton,
+  desktopNav,
+  header,
+  mobileMenuButton,
+  mobileNavLink,
+  mobileNavLinkActive,
+  mobileNavList,
+  mobilePanel,
+  mobilePanelHeader,
+  mobilePanelHidden,
+  moonIcon,
+  navLink,
+  navLinkActive,
+  overlay,
+  overlayHidden,
+  spacer,
+  sunIcon,
+  themeIconWrapper,
+  themeToggle,
+} from './Header.css.ts';
 import { darkTheme, lightTheme } from '@/styles/theme.css.ts';
 
-const NAV_ITEMS = [
-  { to: '/', label: 'Home', icon: Home },
-];
+const NAV_ITEMS = [{ to: '/', label: 'Home', icon: Home }];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -18,7 +37,8 @@ export default function Header() {
   useEffect(() => {
     setMounted(true);
     try {
-      let preferred: 'light' | 'dark' = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      let preferred: 'light' | 'dark' =
+        document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
       if (preferred === 'light') {
         const stored = localStorage.getItem('theme');
         if (stored === 'dark' || stored === 'light') preferred = stored;
@@ -34,7 +54,9 @@ export default function Header() {
     if (open) {
       const prev = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
-      return () => { document.body.style.overflow = prev; };
+      return () => {
+        document.body.style.overflow = prev;
+      };
     }
   }, [open, mounted]);
 
@@ -51,85 +73,79 @@ export default function Header() {
       root.classList.remove(darkTheme);
       root.classList.add(lightTheme);
     }
-    try { localStorage.setItem('theme', theme); } catch {}
+    try {
+      localStorage.setItem('theme', theme);
+    } catch {}
   }, [theme]);
 
   const toggleTheme = useCallback(() => {
-    setTheme(t => (t === 'light' ? 'dark' : 'light'));
+    setTheme((t) => (t === 'light' ? 'dark' : 'light'));
   }, []);
 
   return (
     <>
-      <header className={styles.header}>
-        <Link to="/" className={styles.brand}>SanTan</Link>
-        <nav className={styles.desktopNav} aria-label="Main navigation">
+      <header className={header}>
+        <Link to="/" className={brand}>
+          SanTan
+        </Link>
+        <nav className={desktopNav} aria-label="Main navigation">
           {NAV_ITEMS.map(({ to, label }) => (
             <Link
               key={to}
               to={to}
-              activeProps={{ className: styles.navLinkActive }}
+              activeProps={{ className: navLinkActive }}
               activeOptions={{ exact: true }}
-              className={styles.navLink}
+              className={navLink}
             >
               {label}
             </Link>
           ))}
         </nav>
-        <div className={styles.spacer} />
-        <button
-          className={styles.themeToggle}
-          aria-label="Toggle color theme"
-          onClick={toggleTheme}
-        >
-          <span className={styles.themeIconWrapper} aria-hidden>
-            <Sun size={18} className={styles.sunIcon} />
-            <Moon size={18} className={styles.moonIcon} />
+        <div className={spacer} />
+        <button className={themeToggle} aria-label="Toggle color theme" onClick={toggleTheme}>
+          <span className={themeIconWrapper} aria-hidden>
+            <Sun size={18} className={sunIcon} />
+            <Moon size={18} className={moonIcon} />
           </span>
         </button>
         <button
-          className={styles.mobileMenuButton}
+          className={mobileMenuButton}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-nav"
-          onClick={() => setOpen(o => !o)}
+          onClick={() => setOpen((o) => !o)}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </header>
 
       {/* Overlay */}
-      <div
-        className={open ? styles.overlay : styles.overlayHidden}
-        onClick={() => setOpen(false)}
-        aria-hidden={!open}
-      />
+      <div className={open ? overlay : overlayHidden} onClick={() => setOpen(false)} aria-hidden={!open} />
 
       {/* Mobile Panel */}
       <aside
         id="mobile-nav"
-        className={open ? styles.mobilePanel : styles.mobilePanelHidden}
+        className={open ? mobilePanel : mobilePanelHidden}
         aria-hidden={!open}
         aria-label="Mobile navigation"
       >
-        <div className={styles.mobilePanelHeader}>
-          <Link to="/" className={styles.brand} onClick={() => setOpen(false)}>SanTan</Link>
-          <button
-            className={styles.closeButton}
-            aria-label="Close menu"
-            onClick={() => setOpen(false)}
-          >
+        <div className={mobilePanelHeader}>
+          <Link to="/" className={brand} onClick={() => setOpen(false)}>
+            SanTan
+          </Link>
+          <button className={closeButton} aria-label="Close menu" onClick={() => setOpen(false)}>
             <X size={20} />
           </button>
         </div>
-        <nav className={styles.mobileNavList}>
+        <nav className={mobileNavList}>
           {NAV_ITEMS.map(({ to, label, icon: Icon }) => (
             <Link
               key={to}
               to={to}
               onClick={() => setOpen(false)}
-              activeProps={{ className: styles.mobileNavLinkActive }}
+              activeProps={{ className: mobileNavLinkActive }}
               activeOptions={{ exact: true }}
-              className={styles.mobileNavLink}
+              className={mobileNavLink}
             >
               <Icon size={18} /> {label}
             </Link>

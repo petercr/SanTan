@@ -1,4 +1,4 @@
-import { globalStyle, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 import { vars } from '@/styles/theme.css.ts';
 
 export const header = style({
@@ -52,7 +52,6 @@ export const navLink = style({
   borderRadius: vars.radius.sm,
   selectors: {
     '&:hover': { color: vars.color.primary, background: vars.color.accentTint },
-    '[data-theme="dark"] &': { color: '#F5F9FC' },
     '[data-theme="dark"] &:hover': { color: vars.color.primary },
   },
 });
@@ -117,21 +116,17 @@ export const mobilePanel = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '1.25rem',
-  transform: 'translateX(100%)', // START HIDDEN by default
-  transition: 'none',
+  transform: 'translateX(100%)',
+  transition: 'transform .4s cubic-bezier(.4,0,.2,1)',
   zIndex: 200,
+  selectors: {
+    '&[aria-hidden="false"]': {
+      transform: 'translateX(0)',
+    },
+  },
 });
 
-export const mobilePanelHidden = style([
-  mobilePanel,
-  { transform: 'translateX(100%)' },
-]);
-
-// Only apply transition AND translateX(0) when panel is explicitly open AND ui is ready
-globalStyle(`html.ui-ready aside[aria-hidden="false"].${mobilePanel}`, {
-  transform: 'translateX(0)',
-  transition: 'transform .4s cubic-bezier(.4,0,.2,1)'
-});
+export const mobilePanelHidden = style([mobilePanel, { transform: 'translateX(100%)' }]);
 
 export const mobilePanelHeader = style({
   display: 'flex',
@@ -197,17 +192,19 @@ export const overlay = style({
   background: 'rgba(0,0,0,0.25)',
   backdropFilter: 'blur(2px)',
   WebkitBackdropFilter: 'blur(2px)',
-  opacity: 1,
-  transition: 'none',
+  opacity: 0,
+  pointerEvents: 'none',
+  transition: 'opacity .35s ease',
   zIndex: 150,
+  selectors: {
+    '&[aria-hidden="false"]': {
+      opacity: 1,
+      pointerEvents: 'auto',
+    },
+  },
 });
 
-export const overlayHidden = style([
-  overlay,
-  { opacity: 0, pointerEvents: 'none' },
-]);
-
-globalStyle(`html.ui-ready .${overlay}`, { transition: 'opacity .35s ease' });
+export const overlayHidden = style([overlay, { opacity: 0, pointerEvents: 'none' }]);
 
 export const themeToggle = style({
   display: 'flex',

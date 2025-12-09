@@ -2,7 +2,6 @@ import { z } from 'zod';
 
 export const sanityImageSchemaZ = z
   .object({
-    _type: z.literal('image'),
     asset: z
       .object({
         _ref: z.string(),

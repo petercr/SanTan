@@ -1,4 +1,19 @@
-import { featureCard, featureDescription, featureGrid, featureIcon, featureTitle, heroContent, heroDescription, heroSection, heroSubtitle, heroTitle, logo, logoContainer, logoSeparator, logosRow } from '../Home.css.ts';
+import {
+  featureCard,
+  featureDescription,
+  featureGrid,
+  featureIcon,
+  featureTitle,
+  heroContent,
+  heroDescription,
+  heroSection,
+  heroSubtitle,
+  heroTitle,
+  logo,
+  logoContainer,
+  logoSeparator,
+  logosRow,
+} from '../Home.css.ts';
 import { TanStackLogo } from '@/components/Logos/TanStackLogo.tsx';
 import { SanityLogo } from '@/components/Logos/SanityLogo.tsx';
 import PortableText from '@/components/PortableText/PortableText.tsx';
@@ -11,13 +26,12 @@ interface HeroSectionProps {
 
 const FEATURES = [
   { icon: '⚡', title: 'Lightning Fast', desc: 'Server-side rendering with instant client-side navigation' },
-  { icon: '👁️', title: 'Live Preview', desc: 'Real-time content updates with Sanity\'s visual editing' },
-  { icon: '🎨', title: 'Beautiful UI', desc: 'Clean, modern design inspired by Apple\'s aesthetics' },
+  { icon: '👁️', title: 'Live Preview', desc: "Real-time content updates with Sanity's visual editing" },
+  { icon: '🎨', title: 'Beautiful UI', desc: "Clean, modern design inspired by Apple's aesthetics" },
   { icon: '📱', title: 'Fully Responsive', desc: 'Perfect experience on any device, any screen size' },
 ];
 
 export function HeroSection({ title, subTitle, description }: HeroSectionProps) {
-  console.log(JSON.stringify(description));
   return (
     <section className={heroSection}>
       <div className={heroContent}>
@@ -36,10 +50,10 @@ export function HeroSection({ title, subTitle, description }: HeroSectionProps) 
           </div>
         </div>
         <div className={featureGrid}>
-          {FEATURES.map(f => (
+          {FEATURES.map((f) => (
             <div className={featureCard} key={f.title}>
               <div className={featureIcon}>{f.icon}</div>
-              <h3 className={featureTitle}>{f.title}</h3>
+              <h2 className={featureTitle}>{f.title}</h2>
               <p className={featureDescription}>{f.desc}</p>
             </div>
           ))}

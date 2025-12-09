@@ -1,4 +1,4 @@
-import { globalStyle, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 import { vars } from '@/styles/theme.css.ts';
 
 export const homeContainer = style({
@@ -419,35 +419,13 @@ export const callout = style({
     '[data-theme="dark"] &': {
       background: `linear-gradient(135deg, ${vars.color.bgAlt} 0%, ${vars.color.surfaceElevated} 60%)`,
       boxShadow: '0 4px 14px rgba(0,0,0,0.55)',
-      borderColor: vars.color.border, // sterkere kant
+      borderColor: vars.color.border,
     },
     '&:hover': {
       background: vars.color.surfaceHover,
       borderColor: vars.color.border,
       boxShadow: vars.shadow.float,
     },
-  },
-});
-
-export const calloutHeading = style({
-  fontWeight: 600,
-  fontSize: '0.85rem',
-  letterSpacing: '0.08em',
-  textTransform: 'uppercase',
-  color: vars.color.primaryDeep,
-  selectors: {
-    '[data-theme="dark"] &': { color: '#F5F9FC' },
-  },
-});
-
-export const calloutList = style({
-  margin: 0,
-  padding: '0 0 0 1.1rem',
-  fontSize: '0.85rem',
-  lineHeight: 1.6,
-  color: vars.color.textDim,
-  selectors: {
-    '[data-theme="dark"] &': { color: '#F5F9FC' },
   },
 });
 
@@ -462,7 +440,6 @@ export const devExpList = style({
   },
 });
 
-// Forbedret kodeblokkbakgrunn for dark mode
 export const codeBlock = style({
   fontFamily: vars.font.mono,
   fontSize: '0.8rem',
@@ -484,48 +461,11 @@ export const codeBlock = style({
   },
 });
 
-// Global tekststil inni callout for bedre kontrast
-globalStyle(`${callout} p`, {
-  margin: 0,
-  color: vars.color.text,
-});
-globalStyle(`[data-theme="dark"] ${callout} p`, {
-  color: vars.color.text,
-});
-
-globalStyle(`${callout} h4`, {
-  margin: 0,
-  fontSize: '1.05rem',
-  fontWeight: 600,
-  letterSpacing: '-0.01em',
-  color: vars.color.text,
-});
-globalStyle(`[data-theme="dark"] ${callout} h4`, {
-  color: vars.color.text,
-});
-
-// Hover-effekt på h4 inni callout
-globalStyle(`${callout}:hover h4`, {
-  color: vars.color.primary,
-});
-
-// Reveal animation utilities
-export const reveal = style({
-  opacity: 0,
-  transform: 'translateY(24px)',
-  transition: 'opacity .8s ease, transform .8s cubic-bezier(.4,0,.2,1)',
-  selectors: {
-    '&.in': { opacity: 1, transform: 'translateY(0)' },
-    '&[data-theme="dark"]&': { },
-  },
-});
-
-// Badge utilities (moved earlier)
 export const miniBadgeRow = style({
   display: 'flex',
   flexWrap: 'wrap',
   gap: '.5rem',
-  marginTop: '1rem'
+  marginTop: '1rem',
 });
 
 export const miniBadge = style({
@@ -541,7 +481,11 @@ export const miniBadge = style({
   transition: 'background .25s,color .25s',
   selectors: {
     '&:hover': { background: vars.color.accentSoft, color: vars.color.primary },
-    '[data-theme="dark"] &': { background: vars.color.surfaceElevated, color: '#F5F9FC', border: `1px solid ${vars.color.borderSoft}` },
+    '[data-theme="dark"] &': {
+      background: vars.color.surfaceElevated,
+      color: '#F5F9FC',
+      border: `1px solid ${vars.color.borderSoft}`,
+    },
     '[data-theme="dark"] &:hover': { background: vars.color.surfaceHover, color: vars.color.primary },
   },
 });

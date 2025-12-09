@@ -1,7 +1,9 @@
 import groq from 'groq';
+import { portableTextProjection } from '@/sanity/projections/portableText.ts';
 
 export const POST_QUERY_FIELDS = `
   _id,
+  _key,
   title,
   fullSlug,
   // for simplicity in this demo these are typed as "any"
@@ -11,9 +13,9 @@ export const POST_QUERY_FIELDS = `
   "categories": categories[]->{ title, description, slug },
   publishedAt,
   _updatedAt,
-  mainImage,  
+  mainImage,
   ingress,
-  body,
+  body[]${portableTextProjection},
   seo,
   _createdAt
 `;
@@ -31,7 +33,7 @@ export const POST_STUB_QUERY_FIELDS = `
 export function getPostsQuery(limit = 6) {
   return groq`
     *[
-      _type == "post" && !(_id in path('drafts.**')) &&
+      _type == "post" &&
       (
         !defined($lastPublishedAt) ||
         publishedAt < $lastPublishedAt ||

@@ -2,8 +2,8 @@ import { TagIcon } from 'lucide-react';
 import type { PreviewValue } from 'sanity';
 import { defineField, defineType } from 'sanity';
 
-import { FullSlugInput } from '../customInputComponents/fullSlugInput';
-import { isUniqueAcrossDocumentTypes } from '../utils/isUnique';
+import { FullSlugInput } from '../../customInputComponents/fullSlugInput';
+import { isUniqueAcrossDocumentTypes } from '../../utils/isUnique';
 
 export const category = defineType({
   name: 'category',

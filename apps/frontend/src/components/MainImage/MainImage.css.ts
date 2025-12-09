@@ -2,30 +2,21 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '@/styles/theme.css.ts';
 
 export const container = style({
+  display: 'flex',
+  justifyContent: 'center',
+  gridColumn: '5 / -5',
   width: '100%',
   overflow: 'hidden',
-  maxWidth: '1140px',
   marginBottom: '32px',
-});
-
-export const imageStyle = style({
-  width: '100%',
-  height: 'auto',
-  display: 'block',
-});
-
-export const missingImage = style({
-  width: '100%',
-  minHeight: '300px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundColor: vars.color.bgSoft,
-  color: vars.color.textDim,
-  selectors: {
-    '[data-theme="dark"] &': {
-      backgroundColor: vars.color.surfaceElevated,
-      color: '#C2D4E2',
+  '@media': {
+    'screen and (max-width: 1900px)': {
+      gridColumn: '3 / -3',
+    },
+    'screen and (max-width: 1280px)': {
+      gridColumn: '2 / -2',
+    },
+    'screen and (max-width: 768px)': {
+      gridColumn: '1 / -1',
     },
   },
 });
@@ -68,7 +59,6 @@ export const skeleton = style({
 export const portraitWrapper = style({
   position: 'relative',
   width: '100%',
-  maxWidth: '1140px',
   height: '60vh',
   minHeight: '400px',
   overflow: 'hidden',
@@ -78,6 +68,12 @@ export const portraitWrapper = style({
   justifyContent: 'center',
   selectors: {
     '[data-theme="dark"] &': { background: vars.color.surfaceElevated },
+  },
+  '@media': {
+    'screen and (max-width: 768px)': {
+      height: 'auto',
+      minHeight: 'auto',
+    },
   },
 });
 

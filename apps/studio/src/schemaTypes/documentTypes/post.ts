@@ -1,8 +1,8 @@
 import { Newspaper } from 'lucide-react';
 import { defineField, defineType } from 'sanity';
 
-import { FullSlugInput } from '../customInputComponents/fullSlugInput';
-import { isUniqueAcrossDocumentTypes } from '../utils/isUnique';
+import { FullSlugInput } from '../../customInputComponents/fullSlugInput';
+import { isUniqueAcrossDocumentTypes } from '../../utils/isUnique';
 
 export const post = defineType({
   name: 'post',
@@ -46,7 +46,7 @@ export const post = defineType({
       name: 'author',
       title: 'Forfatter',
       type: 'reference',
-      to: { type: 'author' },
+      to: { type: 'person' },
     }),
     defineField({
       name: 'mainImage',
@@ -88,7 +88,7 @@ export const post = defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      author: 'person.name',
       media: 'mainImage',
     },
     prepare(selection) {

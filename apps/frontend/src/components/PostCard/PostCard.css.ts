@@ -1,4 +1,4 @@
-import { globalStyle, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 import { vars } from '@/styles/theme.css.ts';
 
 export const postCard = style({
@@ -12,11 +12,13 @@ export const postCard = style({
   overflow: 'hidden',
   transition: 'background .25s, transform .35s cubic-bezier(0.4, 0, 0.2, 1)',
   boxShadow: vars.shadow.subtle,
-  ':hover': {
-    background: vars.color.surfaceHover,
-    borderColor: vars.color.border,
-    transform: 'translateY(-5px)',
-    boxShadow: vars.shadow.float,
+  selectors: {
+    '&:hover': {
+      background: vars.color.surfaceHover,
+      borderColor: vars.color.border,
+      transform: 'translateY(-5px)',
+      boxShadow: vars.shadow.float,
+    },
   },
 });
 
@@ -36,6 +38,11 @@ export const image = style({
   width: '100%',
   objectFit: 'cover',
   transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+  selectors: {
+    [`${postCard}:hover &`]: {
+      transform: 'scale(1.06)',
+    },
+  },
 });
 
 export const missingImage = style({
@@ -56,10 +63,6 @@ export const missingImage = style({
       color: '#2F5470',
     },
   },
-});
-
-globalStyle(`${postCard}:hover img`, {
-  transform: 'scale(1.06)',
 });
 
 export const postCardContent = style({
@@ -95,23 +98,4 @@ export const postCardIngress = style({
   overflow: 'hidden',
   letterSpacing: '-0.008em',
   fontWeight: 300,
-});
-
-globalStyle(`${postCardContent} h1, ${postCardContent} h2, ${postCardContent} h3`, {
-  color: vars.color.text,
-  lineHeight: 1.25,
-  letterSpacing: '-0.015em',
-  fontWeight: 600,
-});
-
-globalStyle(`${postCardContent} h1`, { fontSize: 'clamp(1.6rem, 1.3rem + 1vw, 2.1rem)' });
-globalStyle(`${postCardContent} h2`, { fontSize: 'clamp(1.35rem, 1.15rem + .7vw, 1.75rem)' });
-globalStyle(`${postCardContent} h3`, { fontSize: 'clamp(1.15rem, 1rem + .5vw, 1.45rem)', fontWeight: 600 });
-
-globalStyle(`${postCardContent} h1, ${postCardContent} h2, ${postCardContent} h3`, {
-  transition: 'color .25s',
-});
-
-globalStyle(`${postCardContent} h1:hover, ${postCardContent} h2:hover, ${postCardContent} h3:hover`, {
-  color: vars.color.primaryAlt,
 });

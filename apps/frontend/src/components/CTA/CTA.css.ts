@@ -16,7 +16,9 @@ export const ctaInner = style({
   borderRadius: vars.radius.lg,
   padding: '2.75rem clamp(1.5rem,3vw,3rem)',
   boxShadow: vars.shadow.subtle,
-  '@media': { 'screen and (min-width: 860px)': { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' } },
+  '@media': {
+    'screen and (min-width: 860px)': { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  },
 });
 
 export const ctaTitle = style({
