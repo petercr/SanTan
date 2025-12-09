@@ -10,7 +10,7 @@ export const seo = defineType({
     defineField({
       name: 'description',
       title: 'Beskrivelse',
-      description: 'Meta-beskrivelse for SEO',
+      description: 'Meta-beskrivelse for søkemotorer, deling på sosiale medier osv.',
       type: 'string',
     }),
     defineField({

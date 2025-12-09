@@ -1,8 +1,8 @@
+import { sanityTypeLiterals } from '@santan/shared/types';
 import { Home, Tags, Users } from 'lucide-react';
 import type { DefaultDocumentNodeResolver, StructureBuilder, StructureResolver } from 'sanity/structure';
 import DocumentsPane from 'sanity-plugin-documents-pane';
 
-import { sanityTypeLiterals } from '@santan/shared/types';
 import { JSONPreview } from './components/JSONPreview';
 
 export const structure: StructureResolver = (S) =>
@@ -11,13 +11,13 @@ export const structure: StructureResolver = (S) =>
     .title('Content')
     .items([
       // Singleton, home page curation
-      S.listItem().icon(Home).id('home').title('Home').child(defaultDocumentViews(S, sanityTypeLiterals.home)),
+      S.listItem().icon(Home).id('home').title('HomePage').child(defaultDocumentViews(S, sanityTypeLiterals.home)),
       S.divider(),
       // Document lists
-      S.documentTypeListItem('post').title('Artikler'),
-      S.documentTypeListItem('category').title('Kategorier').icon(Tags), //Plural
+      S.documentTypeListItem('post').title('Articles'),
+      S.documentTypeListItem('category').title('Categories').icon(Tags), //Plural
       S.divider(),
-      S.documentTypeListItem('author').title('Skribenter').icon(Users), //Plural
+      S.documentTypeListItem('person').title('Persons').icon(Users), //Plural
     ]);
 
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, { schemaType, documentId }) => {
@@ -38,7 +38,7 @@ const defaultDocumentViews = (S: StructureBuilder, documentType: sanityTypeLiter
         .options({
           query: `*[references($id)]`,
           params: { id: `_id` },
-          options: { perspective: 'previewDrafts' },
+          options: { perspective: 'drafts' },
         })
         .title('Dokumenter som refererer til dette'),
     ]);

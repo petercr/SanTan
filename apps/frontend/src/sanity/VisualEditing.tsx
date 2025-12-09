@@ -107,7 +107,7 @@ export function VisualEditing(): React.ReactElement | null {
               dataset: env.SANITY_DATASET,
               useCdn: false,
               apiVersion: env.SANITY_API_VERSION,
-              perspective: 'previewDrafts',
+              perspective: 'drafts',
               token,
               stega: {
                 enabled: true,

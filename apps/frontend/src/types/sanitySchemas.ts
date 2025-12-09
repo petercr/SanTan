@@ -28,7 +28,6 @@ export const sanityImageZ = z.object({
   hotspot: sanityImageHotspotZ.optional(),
   crop: sanityImageCropZ.optional(),
   alt: z.string().optional(),
-  _type: z.literal('image'),
 });
 
 export type SanityImage = z.infer<typeof sanityImageZ>;
@@ -45,13 +44,18 @@ export const linkMarkDefZ = z.object({
   _type: z.literal('link'),
   _key: z.string(),
   href: z.string().optional(),
+  children: z.array(spanZ).optional(),
 });
+
+export type linkMarkDef = z.infer<typeof linkMarkDefZ>;
 
 export const phoneNumberLinkMarkDefZ = z.object({
   _type: z.literal('phoneNumberLink'),
   _key: z.string(),
   phoneNumber: z.string().optional(),
 });
+
+export type phoneNumberLinkMarkDef = z.infer<typeof phoneNumberLinkMarkDefZ>;
 
 export const markDefZ = z.union([linkMarkDefZ, phoneNumberLinkMarkDefZ]);
 
@@ -67,11 +71,30 @@ export const blockZ = z.object({
 
 export const imageBlockZ = z.object({
   _type: z.literal('image'),
-  _key: z.string(),
   asset: sanityImageAssetZ.optional(),
   hotspot: sanityImageHotspotZ.optional(),
   crop: sanityImageCropZ.optional(),
 });
+
+export const enrichedImageBlockZ = z.object({
+  _type: z.literal('enrichedImage'),
+  _key: z.string(),
+  image: imageBlockZ.optional(),
+  caption: z.string().optional(),
+  altText: z.string().optional(),
+  credits: z.object({ name: z.string().nullable() }),
+});
+
+export type EnrichedImageBlock = z.infer<typeof enrichedImageBlockZ>;
+
+export const imageCarouselBlockZ = z.object({
+  _type: z.literal('imageCarousel'),
+  _key: z.string(),
+  images: z.array(enrichedImageBlockZ).nullable(),
+  numberOfImagesToShow: z.number(),
+});
+
+export type ImageCarouselBlock = z.infer<typeof imageCarouselBlockZ>;
 
 export const accordionContentBlockZ = z.object({
   _type: z.literal('block'),
@@ -86,11 +109,26 @@ export const accordionContentBlockZ = z.object({
 export const accordionZ = z.object({
   _type: z.literal('accordion'),
   _key: z.string(),
-  title: z.string().optional(),
-  content: z.array(accordionContentBlockZ).optional(),
+  content: z
+    .array(
+      z.object({
+        _key: z.string(),
+        title: z.string().nullable(),
+        accordionContent: z.array(accordionContentBlockZ).nullable(),
+      }),
+    )
+    .optional(),
 });
 
-export const portableTextBlockZ = z.union([blockZ, imageBlockZ, accordionZ]);
+export type AccordionBlock = z.infer<typeof accordionZ>;
+
+export const portableTextBlockZ = z.discriminatedUnion('_type', [
+  blockZ,
+  imageBlockZ,
+  accordionZ,
+  enrichedImageBlockZ,
+  imageCarouselBlockZ,
+]);
 
 export const portableTextZ = z.array(portableTextBlockZ);
 

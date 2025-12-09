@@ -14,15 +14,15 @@ import { CATEGORIES_PER_PAGE, POSTS_PER_PAGE } from '@/constants/config.ts';
 
 // Groq query
 export const HOME_QUERY = groq`{
-  "homeData": *[_id == "home"][0]{ title, subTitle, description },
+  "homeData": *[_type == "home"][0]{ title, subTitle, description },
   "postsData": ${getPostsQuery(POSTS_PER_PAGE)},
-  "categoriesData": *[_type == "category" && !(_id in path('drafts.**'))] | order(_createdAt desc)[0..${CATEGORIES_PER_PAGE}] { title, fullSlug, mainImage, description, _createdAt }
+  "categoriesData": *[_type == "category"] | order(_createdAt desc)[0..${CATEGORIES_PER_PAGE}] { title, fullSlug, mainImage, description, _createdAt }
 }`;
 
 // Tanstack Query
 export const homeQuery = (options: UnfilteredResponseQueryOptions) =>
   queryOptions({
-    queryKey: ['homeData', options.perspective || 'published'],
+    queryKey: ['home', options.perspective || 'published'],
     staleTime: 1000 * 60 * 5, // Consider data fresh for 5 minutes
     gcTime: 1000 * 60 * 10, // Keep in cache for 10 minutes
     queryFn: () => {
@@ -43,7 +43,9 @@ export const homeQuery = (options: UnfilteredResponseQueryOptions) =>
 
           // Safely parse each field, providing defaults if null/undefined
           // Using ?? to handle both null and undefined at runtime
-          const homeData = res.result.homeData ? homeZ.parse(res.result.homeData) : { title: null, subTitle: null, description: null };
+          const homeData = res.result.homeData
+            ? homeZ.parse(res.result.homeData)
+            : { title: null, subTitle: null, description: null };
           const postsData = res.result.postsData ? postsZ.parse(res.result.postsData) : [];
           const categoriesData = res.result.categoriesData ? categoriesZ.parse(res.result.categoriesData) : [];
 

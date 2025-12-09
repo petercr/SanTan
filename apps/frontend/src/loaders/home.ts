@@ -15,7 +15,7 @@ export const homeLoader = async ({
 
   const options = {
     filterResponse: false,
-    perspective: isPreviewMode ? ('previewDrafts' as ClientPerspective) : ('published' as ClientPerspective),
+    perspective: isPreviewMode ? ('drafts' as ClientPerspective) : ('published' as ClientPerspective),
     ...(isPreviewMode && process.env.SANITY_READ_TOKEN ? { token: process.env.SANITY_READ_TOKEN } : {}),
     ...(isPreviewMode ? { stega: { enabled: true, studioUrl: STUDIO_BASEPATH } } : {}),
   } as UnfilteredResponseQueryOptions;

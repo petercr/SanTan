@@ -79,28 +79,19 @@ export const blockContent = defineType({
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     defineArrayMember({
-      type: 'image',
-      options: { hotspot: true },
+      title: 'Beriket bilde',
+      name: 'enrichedImage',
+      type: 'enrichedImage',
     }),
     defineArrayMember({
-      name: 'accordion',
-      type: 'object',
       title: 'Akkordion',
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-          title: 'Tittel',
-          description: 'Tittel på akkordionen',
-        }),
-        defineField({
-          name: 'content',
-          type: 'array',
-          of: [{ type: 'block' }],
-          title: 'Innhold',
-          description: 'Innholdet som vises når akkordionen er åpen',
-        }),
-      ],
+      name: 'accordion',
+      type: 'accordion',
+    }),
+    defineArrayMember({
+      title: 'Bilde-karusell',
+      name: 'imageCarousel',
+      type: 'imageCarousel',
     }),
   ],
 });

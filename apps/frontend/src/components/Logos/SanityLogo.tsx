@@ -1,11 +1,18 @@
 import * as React from 'react';
 
 /** SanityLogo – simplified theme-aware wordmark */
-export const SanityLogo: React.FC<{ height?: number; className?: string }>=({height=40,className})=>{
-  const width = Math.round(height*220/60);
+export const SanityLogo: React.FC<{ height?: number; className?: string }> = ({ height = 40, className }) => {
+  const width = Math.round((height * 220) / 60);
   return (
-    <svg width={width} height={height} viewBox="0 0 452 160" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <g clip-path="url(#clip0_2001_20)">
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 452 160"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <g clipPath="url(#clip0_2001_20)">
         <path
           d="M46.6255 54.491C34.7181 45.5113 22.6571 38.5467 22.6571 28.4122C22.6571 22.3314 28.032 16.0975 35.4387 16.0975C48.799 16.0975 56.6428 30.0031 64.3448 47.3968H69.1408V7.40063H35.734C8.13908 7.40063 0 24.0637 0 37.109C0 54.2082 14.0928 64.3545 30.0638 76.2332C41.2506 84.494 50.6891 92.1774 50.6891 101.016C50.6891 110.585 44.1566 116.088 35.8757 116.088C27.0161 116.088 13.9392 104.492 4.79603 80.4402H0V124.785H38.2029C61.7341 124.785 73.4998 106.236 73.9368 91.3054C74.5157 73.9117 59.5606 64.2131 46.6255 54.5028V54.491Z"
           fill="currentColor"

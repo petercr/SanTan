@@ -4,7 +4,11 @@ import * as React from 'react';
  * TanStackLogo – theme-aware SVG logo that adapts to light/dark (marine) modes.
  * We reuse the wordmark path, but swap fill color based on data-theme.
  */
-export const TanStackLogo: React.FC<{ height?: number; width?: number; className?: string }>=({height=40, width, className})=>{
+export const TanStackLogo: React.FC<{ height?: number; width?: number; className?: string }> = ({
+  height = 40,
+  width,
+  className,
+}) => {
   // Use CSS currentColor so parent can control color, then fallback to theme token.
   return (
     <svg height={height} viewBox="0 0 3178 660" width={width} xmlns="http://www.w3.org/2000/svg" className={className}>
@@ -24,4 +28,3 @@ export const TanStackLogo: React.FC<{ height?: number; width?: number; className
     </svg>
   );
 };
-

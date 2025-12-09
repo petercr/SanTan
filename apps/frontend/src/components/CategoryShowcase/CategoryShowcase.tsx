@@ -1,7 +1,19 @@
 import * as React from 'react';
 import { Link } from '@tanstack/react-router';
 import { stegaClean } from '@sanity/client/stega';
-import { allLink, card, desc, emoji, emptyState, grid, headerRow, heading, link, title, wrapper } from './CategoryShowcase.css.ts';
+import {
+  allLink,
+  card,
+  desc,
+  emoji,
+  emptyState,
+  grid,
+  headerRow,
+  heading,
+  link,
+  title,
+  wrapper,
+} from './CategoryShowcase.css.ts';
 import type { CategoryStub } from '@/types/category.ts';
 import { Route as FullSlugRoute } from '@/routes/$.tsx';
 
@@ -25,7 +37,12 @@ export interface CategoryShowcaseProps {
   showAllLink?: boolean;
 }
 
-export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ categories, limit = 8, headingText = 'Categories', showAllLink = true }) => {
+export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
+  categories,
+  limit = 8,
+  headingText = 'Categories',
+  showAllLink = true,
+}) => {
   if (!categories.length) {
     return <div className={emptyState}>Ingen kategorier tilgjengelig.</div>;
   }
@@ -35,11 +52,13 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ categories, 
       <div className={headerRow}>
         <h3 className={heading}>{headingText}</h3>
         {showAllLink && categories.length > limit && (
-          <Link to={FullSlugRoute.to} params={{ _splat: '' }} className={allLink} aria-label="Se alle kategorier">Se alle</Link>
+          <Link to={FullSlugRoute.to} params={{ _splat: '' }} className={allLink} aria-label="Se alle kategorier">
+            Se alle
+          </Link>
         )}
       </div>
       <ul className={grid} role="list">
-        {sliced.map(cat => (
+        {sliced.map((cat) => (
           <li key={cat.fullSlug ?? cat._createdAt} className={card}>
             <Link
               to={FullSlugRoute.to}
@@ -47,7 +66,9 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ categories, 
               className={link}
               aria-label={cat.title || undefined}
             >
-              <span className={emoji} aria-hidden>{emojiForCategory(cat.title)}</span>
+              <span className={emoji} aria-hidden>
+                {emojiForCategory(cat.title)}
+              </span>
               <span className={title}>{cat.title}</span>
               {cat.description && <span className={desc}>{cat.description}</span>}
             </Link>

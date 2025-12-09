@@ -1,9 +1,13 @@
-import { createRootRouteWithContext } from '@tanstack/react-router';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import '@fontsource-variable/source-sans-3';
+import '@/styles/globals.css.ts';
 
+import { createRootRouteWithContext } from '@tanstack/react-router';
 import appCss from '../styles.css?url';
 
 import type { QueryClient } from '@tanstack/react-query';
-import { globalLayoutLoader } from '@/loaders/globalLayoutLoader.ts';
+import { globalLayout as globalLayoutLoader } from '@/loaders/globalLayout.ts';
 import { GlobalLayout } from '@/components/GlobalLayout/GlobalLayout.tsx';
 
 interface MyRouterContext {
@@ -24,7 +28,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
           content: 'width=device-width, initial-scale=1',
         },
         {
-          title: 'Santan App - Your Content Platform',
+          title: 'SanTan App - Your Content Platform',
         },
         {
           name: 'description',
