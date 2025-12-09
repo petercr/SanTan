@@ -1,4 +1,4 @@
-import urlBuilder from '@sanity/image-url';
+import { createImageUrlBuilder } from '@sanity/image-url';
 import { useEffect, useRef, useState } from 'react';
 import {
   aspectWrapper,
@@ -90,7 +90,7 @@ export function MainImage({ image, encodeDataAttribute }: MainImageProps) {
   const ratio = originalWidth && originalHeight ? originalHeight / originalWidth : 9 / 16;
   const isPortrait = ratio > 1.05; // litt margin for nesten-kvadrat
 
-  const builder = urlBuilder({ projectId, dataset }).image(image);
+  const builder = createImageUrlBuilder({ projectId, dataset }).image(image);
   // Generate responsive widths
   const widths = [480, 768, 1024, 1280];
   const srcSet = widths

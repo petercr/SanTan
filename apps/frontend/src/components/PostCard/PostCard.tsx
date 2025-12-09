@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { stegaClean } from '@sanity/client/stega';
-import urlBuilder from '@sanity/image-url';
+import { createImageUrlBuilder } from '@sanity/image-url';
 import {
   image,
   imageContainer,
@@ -23,7 +23,13 @@ type PostCardProps = {
 
 export function PostCard({ fullSlug, title, description, mainImage }: PostCardProps) {
   const imageUrl = mainImage
-    ? urlBuilder({ projectId, dataset }).image(mainImage).height(700).width(1140).fit('max').auto('format').url()
+    ? createImageUrlBuilder({ projectId, dataset })
+        .image(mainImage)
+        .height(700)
+        .width(1140)
+        .fit('max')
+        .auto('format')
+        .url()
     : null;
   return (
     <Link to={FullSlugRoute.to} params={{ _splat: stegaClean(fullSlug) || '' }} className={postCard}>

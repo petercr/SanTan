@@ -1,11 +1,16 @@
-import urlBuilder from '@sanity/image-url';
+import { createImageUrlBuilder } from '@sanity/image-url';
 import type { CategoryDocument } from '@/types/category.ts';
 import { dataset, projectId } from '@/sanity/projectDetails.ts';
 import { seo } from '@/lib/seo.ts';
 
 export const categoryMeta = (document: CategoryDocument, relativeUrl?: string) => {
   const src = document.mainImage
-    ? urlBuilder({ projectId, dataset }).image(document.mainImage).height(300).fit('max').auto('format').url()
+    ? createImageUrlBuilder({ projectId, dataset })
+        .image(document.mainImage)
+        .height(300)
+        .fit('max')
+        .auto('format')
+        .url()
     : undefined;
   return {
     meta: [
